@@ -111,40 +111,43 @@ var restart = function() {
   turn = 0;
   score = 0;
   $("#level").html("0");
+  $("#myonoffswitch").removeAttr("disabled");
   gameStart = false;
 };
 
 var startGame = function() {
   if ($("#myonoffswitch").is(":checked")) {
     strictMode = true;
+  } else {
+    strictMode = false;
   }
 
   gameStart = true;
   computerTurn();
   playButton(0,computerList);
+  $("#myonoffswitch").attr("disabled", true);
 };
 
 var error = function () {
   if (strictMode) {
-    restart();
+    console.log("strict");
     alertBox.show();
-    alertSpan.html("You clicked the wrong one - time to start over.");
-    setTimeout(function() {
-      alertBox.hide();
-    }, 500);
-    computerPlay();
+    alertSpan.html("You clicked the wrong one - time to start over. Press okay then start to try again.");
+    restart();
   } else {
     alertBox.show();
     alertSpan.html("You clicked the wrong one - try again.");
+    setTimeout(function() {
+      alertBox.hide();
+    }, 2500);
+    computerPlay();
   }
 };
 
 var checkIfEnd = function() {
   if (turn === computerList.length - 1) {
-    console.log("truth");
     return true;
   }
-  console.log("false");
   return false;
 };
 
@@ -186,7 +189,7 @@ $("#up-left-button").click(function() {
         turn++;
       }
     } else {
-      restart();
+      error();
     }
   }
 });
@@ -201,7 +204,7 @@ $("#up-right-button").click(function() {
         turn++;
       }
     } else {
-      restart();
+      error();
     }
   }
 });
@@ -216,7 +219,7 @@ $("#low-left-button").click(function() {
         turn++;
       }
     } else {
-      restart();
+      error();
     }
   }
 });
@@ -231,22 +234,7 @@ $("#low-right-button").click(function() {
         turn++;
       }
     } else {
-      restart();
+      error();
     }
   }
 });
-
-
-
-
-/*
-
-on click
-  check button pressed
-  if fail end game, if not
-  check if button pressed is the last number in the array
-    if it is, play the sequence again with one new addition
-    if it is the 20th, game over
-  if not, add to arrayNum and wait for next click
-
-*/
