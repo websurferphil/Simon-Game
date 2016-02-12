@@ -265,6 +265,36 @@ Made at: https://proto.io/freebies/onoff/
   background: #0af70a;
 }
 
+.info {
+  width: 250px;
+  height: 250px;
+  border: 1px black solid;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.header {
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.header span {
+  font-weight: 600;
+  font-size: 2.5em;
+}
+
+.info div {
+  font-size: 1.5em;
+  font-weight: 700;
+  width: 100%;
+  text-align: center;
+}
+
+.info hr {
+  width: 66%;
+  color: red;
+}
 
 /* Alert box */
 
