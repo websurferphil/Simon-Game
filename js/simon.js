@@ -4,7 +4,7 @@
 
 var computerList = []; // Holds the list of plays the computer generated
 var turn = 0;
-var score = 0;
+var score = 1;
 var gameStart = false;
 var strictMode = false;
 var soundOne = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
@@ -13,43 +13,21 @@ var soundThree = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp
 var soundFour = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");
 var alertBox = $(".alert"); // Quick alert section grab
 var alertSpan = $("#alert"); // Quick alert section grab
+var playInterval; // so we can stop the interval
 
 ///////////////
 // Functions //
 ///////////////
 
+// Generates the next button in the sequence once
+// the player gets everything correct
+
 var computerTurn = function() {
   computerList.push( Math.floor( Math.random() * 4 ) );
 };
 
-var playButton = function(num, arr) {
-  setTimeout( function() {
-    playSound(arr[num]);
-    flashButton(arr[num]);
-  }, num *  850 );
-};
-
-var computerPlay = function(arr) {
-
-  for (var i = 0; i < arr.length; i++) {
-    playButton(i, arr);
-
-  }
-
-};
-
-var playerCheck = function(number, arrayNum) {
-  if ( computerList[arrayNum] === number) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-var playerFail = function() {
-  gameStart = false;
-  computerList = [];
-};
+// The next two allow the button to flash and play a sound.
+// num is for which button to press and which sound to play
 
 var flashButton = function(num) {
   switch (num) {
@@ -106,6 +84,44 @@ var playSound = function(num) {
 
 };
 
+
+// Plays the button and makes a noise. Timeout is offset so
+// the sounds do not all play at once.
+// num is for the place within the array - arr is for the array itself
+
+var playButton = function(num, arr) {
+  setTimeout( function() {
+    playSound(arr[num]);
+    flashButton(arr[num]);
+  }, num *  850 );
+};
+
+// This allows the computer to play the whole sequence.
+// arr is for the array that is being used.
+
+var computerPlay = function(arr) {
+
+  for (var i = 0; i < arr.length; i++) {
+    playButton(i, arr);
+  }
+
+};
+
+// This will check if the player is correct in their input.
+// number is for what the player pressed.
+// arrayNum is for the number in the computer's sequence.
+
+var playerCheck = function(number, arrayNum) {
+  if ( computerList[arrayNum] === number) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+
+// Restarts the whole game.
+
 var restart = function() {
   computerList = [];
   turn = 0;
@@ -113,7 +129,10 @@ var restart = function() {
   $("#level").html("0");
   $("#myonoffswitch").removeAttr("disabled");
   gameStart = false;
+  clearInterval(playInterval);
 };
+
+// Starts the game.
 
 var startGame = function() {
   if ($("#myonoffswitch").is(":checked")) {
@@ -128,21 +147,20 @@ var startGame = function() {
   $("#myonoffswitch").attr("disabled", true);
 };
 
+// Defines the errors based off if the game is in strictMode or not.
+
 var error = function () {
   if (strictMode) {
-    console.log("strict");
     alertBox.show();
-    alertSpan.html("You clicked the wrong one - time to start over. Press okay then start to try again.");
+    alertSpan.html("You clicked the wrong one - time to start over. Press OK then start to try again.");
     restart();
   } else {
     alertBox.show();
-    alertSpan.html("You clicked the wrong one - try again.");
-    setTimeout(function() {
-      alertBox.hide();
-    }, 2500);
-    computerPlay();
+    alertSpan.html("You clicked the wrong one - press OK and then try again.");
   }
 };
+
+// Checks to see if the player is at the end of sequence.
 
 var checkIfEnd = function() {
   if (turn === computerList.length - 1) {
@@ -151,14 +169,25 @@ var checkIfEnd = function() {
   return false;
 };
 
+// If the above function returns true, check to see if the game is over
+// or if it is just at the end of the sequence.
+
 var ifEndIsTrue = function() {
-  score++;
-  $("#level").html(score);
-  turn = 0;
-  computerTurn();
-  setTimeout(function() {
-    computerPlay(computerList);
-  }, 1500);
+  if (score < 21) {
+    score++;
+    $("#level").html(score);
+    turn = 0;
+    computerTurn();
+    setTimeout(function() {
+      computerPlay(computerList);
+    }, 1500);
+  } else {
+    setTimeout( function() {
+      alertBox.show();
+      alertSpan.html("You won! Press OK and then try again.");
+      restart();
+    }, 1000);
+  }
 };
 
 //////////////////
@@ -167,9 +196,20 @@ var ifEndIsTrue = function() {
 
 $("#ok").click(function() {
   alertBox.hide();
+
+  // If not in strict mode, this will just return the turn counter to zero
+  // for the player to start over.
+
+  if (!(strictMode) && gameStart) {
+    computerPlay(computerList);
+    turn = 0;
+  }
 });
 
+
 $(".start").click(function() {
+  // If gameStart is false, start the game. Basically disables the button if the
+  // game is running.
   if (!gameStart) {
     startGame();
   }
@@ -181,6 +221,7 @@ $(".restart").click(function() {
 
 $("#up-left-button").click(function() {
   if (gameStart) {
+
     playButton(0,[0]);
     if (playerCheck(0, turn)) {
       if (checkIfEnd()) {
@@ -196,6 +237,7 @@ $("#up-left-button").click(function() {
 
 $("#up-right-button").click(function() {
   if (gameStart) {
+
     playButton(0,[1]);
     if (playerCheck(1, turn)) {
       if (checkIfEnd()) {
@@ -211,6 +253,7 @@ $("#up-right-button").click(function() {
 
 $("#low-left-button").click(function() {
   if (gameStart) {
+
     playButton(0,[2]);
     if (playerCheck(2, turn)) {
       if (checkIfEnd()) {
@@ -226,6 +269,7 @@ $("#low-left-button").click(function() {
 
 $("#low-right-button").click(function() {
   if (gameStart) {
+
     playButton(0,[3]);
     if (playerCheck(3, turn)) {
       if (checkIfEnd()) {
