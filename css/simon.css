@@ -7,263 +7,264 @@ or http://www.colourlovers.com/palette/953498/Headache
  rgba(232, 202, 164, 1)
  rgba(204, 42, 65, 1)
 *********/
-.simon-container
-{
-    overflow: hidden;
 
-    width: 600px;
-    height: 600px;
-    margin: 0 auto;
-
-    border: 15px solid #424254;
-    border-radius: 50%;
+.simon-container {
+  overflow: hidden;
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  border: 15px solid #424254;
+  border-radius: 50%;
 }
 
-.up-left-button
-{
-    float: left;
-
-    width: 300px;
-    height: 300px;
-
-    border-right: 5px solid #424254;
-    border-bottom: 5px solid #424254;
-    background-color: #351330;
-}
-.up-right-button
-{
-    float: left;
-
-    width: 300px;
-    height: 300px;
-
-    border-bottom: 5px solid #424254;
-    border-left: 5px solid #424254;
-    background-color: #64908a;
-}
-.low-left-button
-{
-    float: left;
-
-    width: 300px;
-    height: 300px;
-
-    border-top: 5px solid #424254;
-    border-right: 5px solid #424254;
-    background-color: #e8caa4;
-}
-.low-right-button
-{
-    float: left;
-
-    width: 300px;
-    height: 300px;
-
-    border-top: 5px solid #424254;
-    border-left: 5px solid #424254;
-    background-color: #cc2a41;
+.up-left-button {
+  float: left;
+  width: 300px;
+  height: 300px;
+  border-right: 5px solid #424254;
+  border-bottom: 5px solid #424254;
+  background-color: #351330;
 }
 
-.simon-button
-{
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
+.up-right-button {
+  float: left;
+  width: 300px;
+  height: 300px;
+  border-bottom: 5px solid #424254;
+  border-left: 5px solid #424254;
+  background-color: #64908a;
 }
 
-.menu
-{
-    position: relative;
-    z-index: 9999;
-    top: -140px;
-    left: 155px;
-
-    width: 275px;
-    height: 275px;
-
-    text-align: center;
-
-    border: 5px solid #424254;
-    border-radius: 50%;
-    background-color: white;
+.low-left-button {
+  float: left;
+  width: 300px;
+  height: 300px;
+  border-top: 5px solid #424254;
+  border-right: 5px solid #424254;
+  background-color: #e8caa4;
 }
 
+.low-right-button {
+  float: left;
+  width: 300px;
+  height: 300px;
+  border-top: 5px solid #424254;
+  border-left: 5px solid #424254;
+  background-color: #cc2a41;
+}
 
+.simon-button {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-.clear
-{
-    clear: both;
+.menu {
+  position: relative;
+  z-index: 9999;
+  top: -140px;
+  left: 155px;
+  width: 275px;
+  height: 275px;
+  text-align: center;
+  border: 5px solid #424254;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.clear {
+  clear: both;
 }
 
 .menu button,
-.text-holder
-{
-    position: relative;
-    top: -250px;
+.text-holder {
+  position: relative;
+  top: -250px;
 }
 
-.text-holder
-{
-    font-size: 1.5em;
+.text-holder {
+  font-size: 1.5em;
 }
 
-
-
-.level-holder
-{
-    font-family: monospace;
-    font-size: 1.2em;
-
-    width:50px;
-    margin: 0 auto;
-    padding: 3px;
-
-    color: white;
-    background-color: black;
+.level-holder {
+  font-family: monospace;
+  font-size: 1.2em;
+  width: 50px;
+  margin: 0 auto;
+  padding: 3px;
+  color: white;
+  background-color: black;
 }
 
-.br-fix
-{
-    height: 5px !important;
+.br-fix {
+  height: 5px !important;
 }
+
 
 /* for Toggle
 
 Made at: https://proto.io/freebies/onoff/
 */
 
-.toggle-holder
-{
-    margin: 5px auto;
+.toggle-holder {
+  margin: 5px auto;
 }
 
 .onoffswitch {
-    position: relative; width: 116px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+  position: relative;
+  width: 116px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
+
 .onoffswitch-checkbox {
-    display: none;
+  display: none;
 }
+
 .onoffswitch-label {
-    display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #FFFFFF; border-radius: 50px;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #FFFFFF;
+  border-radius: 50px;
 }
+
 .onoffswitch-inner {
-    display: block; width: 200%; margin-left: -100%;
-    transition: margin 0.3s ease-in 0s;
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
 }
-.onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 41px; padding: 0; line-height: 41px;
-    font-size: 25px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-    box-sizing: border-box;
-}
-.onoffswitch-inner:before {
-    content: "On";
-    text-align: left;
-    padding-left: 14px;
-    background-color: #CCC; color: #34C237;
-}
+
+.onoffswitch-inner:before,
 .onoffswitch-inner:after {
-    content: "Off";
-    padding-right: 14px;
-    background-color: #CCC; color: #D95757;
-    text-align: right;
+  display: block;
+  float: left;
+  width: 50%;
+  height: 41px;
+  padding: 0;
+  line-height: 41px;
+  font-size: 25px;
+  color: white;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  box-sizing: border-box;
 }
+
+.onoffswitch-inner:before {
+  content: "On";
+  text-align: left;
+  padding-left: 14px;
+  background-color: #CCC;
+  color: #34C237;
+}
+
+.onoffswitch-inner:after {
+  content: "Off";
+  padding-right: 14px;
+  background-color: #CCC;
+  color: #D95757;
+  text-align: right;
+}
+
 .onoffswitch-switch {
-    display: block; width: 38px; margin: 1.5px;
-    background: #D95757;
-    position: absolute; top: 0; bottom: 0;
-    right: 71px;
-    border: 2px solid #CCC; border-radius: 50px;
-    transition: all 0.3s ease-in 0s;
+  display: block;
+  width: 38px;
+  margin: 1.5px;
+  background: #D95757;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 71px;
+  border: 2px solid #CCC;
+  border-radius: 50px;
+  transition: all 0.3s ease-in 0s;
 }
+
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-    margin-left: 0;
+  margin-left: 0;
 }
+
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0;
-    background-color: #34C237;
+  right: 0;
+  background-color: #34C237;
 }
+
 
 /* Generated for a better looking button.
 
 */
 
-.button
-{
-    font-size: 18px;
-
-    padding: 5px 20px;
-
-    vertical-align: middle;
-    text-decoration: none;
-
-    color: white;
-    border-top: 1px solid #f28888;
-    -webkit-border-radius: 17px;
-       -moz-border-radius: 17px;
-            border-radius: 17px;
-    background: #d66565;
-    background: -webkit-gradient(linear, left top, left bottom, from(#9c3e3e), to(#d66565));
-    background: -webkit-linear-gradient(top, #9c3e3e, #d66565);
-    background:    -moz-linear-gradient(top, #9c3e3e, #d66565);
-    background:     -ms-linear-gradient(top, #9c3e3e, #d66565);
-    background:      -o-linear-gradient(top, #9c3e3e, #d66565);
-    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-       -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-            box-shadow: rgba(0,0,0,1) 0 1px 0;
-    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+.button {
+  font-size: 18px;
+  padding: 5px 20px;
+  vertical-align: middle;
+  text-decoration: none;
+  color: white;
+  border-top: 1px solid #f28888;
+  -webkit-border-radius: 17px;
+  -moz-border-radius: 17px;
+  border-radius: 17px;
+  background: #d66565;
+  background: -webkit-gradient(linear, left top, left bottom, from(#9c3e3e), to(#d66565));
+  background: -webkit-linear-gradient(top, #9c3e3e, #d66565);
+  background: -moz-linear-gradient(top, #9c3e3e, #d66565);
+  background: -ms-linear-gradient(top, #9c3e3e, #d66565);
+  background: -o-linear-gradient(top, #9c3e3e, #d66565);
+  -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+  box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+  text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
 }
-.button:hover
-{
-    color: #ccc;
-    border-top-color: #782828;
-    background: #782828;
+
+.button:hover {
+  color: #ccc;
+  border-top-color: #782828;
+  background: #782828;
 }
-.button:active
-{
-    border-top-color: #f70a0a;
-    background: #f70a0a;
+
+.button:active {
+  border-top-color: #f70a0a;
+  background: #f70a0a;
 }
+
 
 /* start button style*/
 
-.start-button
-{
-    font-size: 18px;
-
-    padding: 5px 20px;
-
-    vertical-align: middle;
-    text-decoration: none;
-
-    color: white;
-    border-top: 1px solid #88f288;
-    -webkit-border-radius: 17px;
-       -moz-border-radius: 17px;
-            border-radius: 17px;
-    background: #65d665;
-    background: -webkit-gradient(linear, left top, left bottom, from(#3e9c3e), to(#65d665));
-    background: -webkit-linear-gradient(top, #3e9c3e, #65d665);
-    background:    -moz-linear-gradient(top, #3e9c3e, #65d665);
-    background:     -ms-linear-gradient(top, #3e9c3e, #65d665);
-    background:      -o-linear-gradient(top, #3e9c3e, #65d665);
-    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-       -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-            box-shadow: rgba(0,0,0,1) 0 1px 0;
-    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+.start-button {
+  font-size: 18px;
+  padding: 5px 20px;
+  vertical-align: middle;
+  text-decoration: none;
+  color: white;
+  border-top: 1px solid #88f288;
+  -webkit-border-radius: 17px;
+  -moz-border-radius: 17px;
+  border-radius: 17px;
+  background: #65d665;
+  background: -webkit-gradient(linear, left top, left bottom, from(#3e9c3e), to(#65d665));
+  background: -webkit-linear-gradient(top, #3e9c3e, #65d665);
+  background: -moz-linear-gradient(top, #3e9c3e, #65d665);
+  background: -ms-linear-gradient(top, #3e9c3e, #65d665);
+  background: -o-linear-gradient(top, #3e9c3e, #65d665);
+  -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+  box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+  text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
 }
-.start-button:hover
-{
-    color: #ccc;
-    border-top-color: #287828;
-    background: #287828;
+
+.start-button:hover {
+  color: #ccc;
+  border-top-color: #287828;
+  background: #287828;
 }
-.start-button:active
-{
-    border-top-color: #0af70a;
-    background: #0af70a;
+
+.start-button:active {
+  border-top-color: #0af70a;
+  background: #0af70a;
 }
+
 
 /* Alert box */
 
@@ -275,16 +276,12 @@ Made at: https://proto.io/freebies/onoff/
   left: 0;
   right: 0;
   margin: auto;
-
   display: none;
-
   padding: 15px;
-
   width: 300px;
   height: 70px;
   border: 1px solid #2284C3;
   border-radius: 25px;
   background-color: white;
-
   text-align: center;
 }

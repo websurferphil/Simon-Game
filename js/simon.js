@@ -9,7 +9,7 @@ var gameStart = false;
 var strictMode = false;
 var soundOne = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
 var soundTwo = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
-var soundThree = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" );
+var soundThree = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
 var soundFour = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");
 var alertBox = $(".alert"); // Quick alert section grab
 var alertSpan = $("#alert"); // Quick alert section grab
@@ -23,7 +23,7 @@ var playInterval; // so we can stop the interval
 // the player gets everything correct
 
 var computerTurn = function() {
-  computerList.push( Math.floor( Math.random() * 4 ) );
+  computerList.push(Math.floor(Math.random() * 4));
 };
 
 // The next two allow the button to flash and play a sound.
@@ -84,16 +84,15 @@ var playSound = function(num) {
 
 };
 
-
 // Plays the button and makes a noise. Timeout is offset so
 // the sounds do not all play at once.
 // num is for the place within the array - arr is for the array itself
 
 var playButton = function(num, arr) {
-  setTimeout( function() {
+  setTimeout(function() {
     playSound(arr[num]);
     flashButton(arr[num]);
-  }, num *  850 );
+  }, num * 850);
 };
 
 // This allows the computer to play the whole sequence.
@@ -112,13 +111,12 @@ var computerPlay = function(arr) {
 // arrayNum is for the number in the computer's sequence.
 
 var playerCheck = function(number, arrayNum) {
-  if ( computerList[arrayNum] === number) {
+  if (computerList[arrayNum] === number) {
     return true;
   } else {
     return false;
   }
 };
-
 
 // Restarts the whole game.
 
@@ -143,13 +141,13 @@ var startGame = function() {
 
   gameStart = true;
   computerTurn();
-  playButton(0,computerList);
+  playButton(0, computerList);
   $("#myonoffswitch").attr("disabled", true);
 };
 
 // Defines the errors based off if the game is in strictMode or not.
 
-var error = function () {
+var error = function() {
   if (strictMode) {
     alertBox.show();
     alertSpan.html("You clicked the wrong one - time to start over. Press OK then start to try again.");
@@ -182,7 +180,7 @@ var ifEndIsTrue = function() {
       computerPlay(computerList);
     }, 1500);
   } else {
-    setTimeout( function() {
+    setTimeout(function() {
       alertBox.show();
       alertSpan.html("You won! Press OK and then try again.");
       restart();
@@ -206,7 +204,6 @@ $("#ok").click(function() {
   }
 });
 
-
 $(".start").click(function() {
   // If gameStart is false, start the game. Basically disables the button if the
   // game is running.
@@ -222,7 +219,7 @@ $(".restart").click(function() {
 $("#up-left-button").click(function() {
   if (gameStart) {
 
-    playButton(0,[0]);
+    playButton(0, [0]);
     if (playerCheck(0, turn)) {
       if (checkIfEnd()) {
         ifEndIsTrue();
@@ -238,7 +235,7 @@ $("#up-left-button").click(function() {
 $("#up-right-button").click(function() {
   if (gameStart) {
 
-    playButton(0,[1]);
+    playButton(0, [1]);
     if (playerCheck(1, turn)) {
       if (checkIfEnd()) {
         ifEndIsTrue();
@@ -254,7 +251,7 @@ $("#up-right-button").click(function() {
 $("#low-left-button").click(function() {
   if (gameStart) {
 
-    playButton(0,[2]);
+    playButton(0, [2]);
     if (playerCheck(2, turn)) {
       if (checkIfEnd()) {
         ifEndIsTrue();
@@ -270,7 +267,7 @@ $("#low-left-button").click(function() {
 $("#low-right-button").click(function() {
   if (gameStart) {
 
-    playButton(0,[3]);
+    playButton(0, [3]);
     if (playerCheck(3, turn)) {
       if (checkIfEnd()) {
         ifEndIsTrue();
